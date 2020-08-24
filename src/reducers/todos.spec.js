@@ -1,5 +1,5 @@
 import todos from './todos'
-
+import todos, {addTodo, toggleTodo} from '../features/todos/todoSlice'
 describe('todos reducer', () => {
   it('should handle initial state', () => {
     expect(todos(undefined, {})).toEqual([])
@@ -8,9 +8,14 @@ describe('todos reducer', () => {
   it('should handle ADD_TODO', () => {
     expect(
       todos([], {
-        type: 'ADD_TODO',
+        // type: 'ADD_TODO',
+        // text: 'Run the tests',
+        // id: 0
+        type: addTodo.type,
+        payload: {
         text: 'Run the tests',
         id: 0
+      }
       })
     ).toEqual([
       {
